@@ -168,3 +168,83 @@ arr[32.23]='hi'
 console.log(arr)
 arr['h']='m'
 console.log(arr)
+/*
+since arrays are objects
+you can use the object.keys
+method to reutnr arrays
+keys (index values) as array of string
+
+*/
+
+console.log(Object.keys(arr))
+//unset values are set to undefined
+//as an after effect of callinga another method
+//while explicit undefined ones are purporelsy set in an array
+
+// unset values
+let a1 = new Array(3);
+let b = [];
+b.length = 3;
+
+// undefined
+let c = [undefined, undefined, undefined]
+
+a1;                      // [ <3 empty items> ]
+b;                      // [ <3 empty items> ]
+c;                      // [ undefined, undefined, undefined ]
+
+a1[0] === undefined;     // true
+b[0] === undefined;     // true
+
+a1.length;                //  3
+b.length;                //  3
+c.length;                //  3
+
+console.log(Object.keys(a1).length);   //  0
+Object.keys(b).length;   //  0
+console.log(Object.keys(c).length);   //  3
+
+/*
+the c array was set explicetly and whent .length
+property was used it shows that the keys method
+counts only the keys that were set explicetly
+*/
+//nested array
+//same as python
+
+//array equality
+console.log([1,2,3]===[1,2,3]) //false
+let a2=[1,2,3]
+let b2=a2
+console.log(a2===b2) //true
+
+/**
+arrays have to point to same memroy spot to be seen
+as equal, this rule holds for objects 
+
+
+
+other array methods
+includes
+cant use it to check for nested arrys
+*/
+let arr2=[1,2,3,[4,5]]
+arr2.includes(3) //TRUE
+arr2.includes([4,5]) //FALSE
+
+//sort is desctructiv and mutates caller
+arr1=[5,3,123,56,1]
+console.log(arr1.sort())
+//arr1 becomes [1,123,3,5,56]
+//is not math sort more like a abc sort
+//slice extracts aand returns a portion of array
+//(index at which extracoint begins, where extraction ends)
+//if you dont provide arguments slice returns copy of entire
+//array
+
+//revers reverses order of array and is dstructive
+// you can use slice without arguments
+//to make a copy and avoid mutating original[123,56,5,3,1]
+
+let array3=arr1.slice().reverse()
+console.log(array3) //
